@@ -93,7 +93,7 @@ contract TestLensApiConsumerContract is PhatRollupAnchor{
 
     uint constant TYPE_RESPONSE = 0;
     uint constant TYPE_ERROR = 2;
-    event ResponseReceived3(uint reqId,  address pair,bytes32[32] data,uint32 n,bytes32 n2,bytes32 n9,uint32 n8,address n7,uint32 n6,address n5,uint256 n4,bytes n3);
+    event ResponseReceived3(uint reqId,  address pair,bytes32[32] data,uint32 n,bytes32 n2,bytes32 n9,uint32 n8,address n7,uint32 n6,address n5,uint256,bytes32 n3);
 //     uint32 n;
 //     uint n1;
 //     bytes32 n2;
@@ -145,9 +145,9 @@ contract TestLensApiConsumerContract is PhatRollupAnchor{
         //     action,
         //     (  uint, uint,    uint32, bytes32,  bytes32[32],   bytes,           uint256,   address,    uint32,   address,    uint32,      bytes32)
         // );
-        (uint respType, uint id,bytes32[32] memory data,uint32 n,bytes32 n2, bytes32 n9,uint32 n8,address n7,uint32 n6,address n5,uint256 n4,bytes memory n3) = abi.decode(
+        (uint respType, uint id,bytes32[32] memory data,uint32 n,bytes32 n2, bytes32 n9,uint32 n8,address n7,uint32 n6,address n5,uint256 n4,bytes32 n3) = abi.decode(
             action,
-            (  uint, uint,bytes32[32],uint32, bytes32,bytes32,uint32,address,uint32,address,uint256,bytes)
+            (  uint, uint,bytes32[32],uint32, bytes32,bytes32,uint32,address,uint32,address,uint256,bytes32)
         );
         // console.logUint(id);
 //         n=n;

@@ -59,7 +59,8 @@ console.log(respEvents?.map((e:any) => {
       const r5=args[9];
       const r6=args[10];
       const r7=args[11];
-      console.log('Address:', address,l,r,r1,r2,r3,r4,r5,r6,r7);
+      console.log('Address:', r6);
+      // console.log("Ad" +r6 + r5 )
   }
 }));
     // Check response data

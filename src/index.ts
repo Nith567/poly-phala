@@ -236,6 +236,7 @@ import { Coder } from "@ethersproject/abi/lib/coders/abstract-coder";
 const addressCoder = new Coders.AddressCoder("address");
 const addressArrayCoder = new Coders.ArrayCoder(addressCoder, 32, "address");
 const uintCoder = new Coders.NumberCoder(32, false, "uint256");
+const uintCoder5 = new Coders.NumberCoder(256, false, "uint256");
 const bytesCoder3 = new Coders.FixedBytesCoder(32,"bytes")
 // const bytescoder32=new Coders.BytesCoder
 // const uintCoder32= new Coders.NumberCoder(32, false, "32");
@@ -251,7 +252,7 @@ const bytesArrayCoder = new Coders.ArrayCoder(bytesCoder3, 32, "bytes");
 // bytes32,uint32,address,uint32,address,uint256
 function encodeReply(reply: [any,any,any,any,any,any,any,any,any,any,any,any]): HexString {
   // return Coders.encode([uintCoder,uintCoder,uintCoder32,bytesCoder,bytesArrayCoder,bytesCoder,uintCoder,addressCoder,uintCoder32,addressCoder,uintCoder32,bytesCoder], reply) as HexString;
-  return Coders.encode([uintCoder,uintCoder,bytesArrayCoder,uintCoder,bytesCoder3,bytesCoder3,uintCoder,addressCoder,uintCoder,addressCoder,uintCoder,bytesCoder3], reply) as HexString;
+  return Coders.encode([uintCoder,uintCoder,bytesArrayCoder,uintCoder,bytesCoder3,bytesCoder3,uintCoder,addressCoder,uintCoder,addressCoder,uintCoder5,bytesCoder3], reply) as HexString;
 }
 function encodeReply2(reply: [any,any,any]): HexString {
   const encodedData = encodeAbiParameters(
@@ -496,7 +497,7 @@ console.info("makki : ",[stats1])
       // Otherwise, tell the client we cannot process it
       console.log("errors", [TYPE_ERROR, requestId,"0x00000000000000000000000000000000000000000000000000000000000002b8"]);
       // return encodeReply([TYPE_ERROR, requestId]);
-      return encodeReply([342, 234,"0x123456789abcdef","sldkfj","0xsdlfjlsdkfj",'sdf','sdf','sdf','dsf','sd','f','sd']);
+      return encodeReply([342, 234,"0x123456789abcdef","sldkfj","0xsdlfjlsdkfj",'sdf','sdf','sdf','dsf','sd','2es','sd']);
       // uintCoder,uintCoder,stringCoder,uintCoder,bytesCoder,bytesArrayCoder,stringCoder,stringCoder,addressCoder,uintCoder,addressCoder,uintCoder32,bytesCoder
     }
   }
