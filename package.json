@@ -52,6 +52,9 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^5.0.0",
+    "@openzeppelin/hardhat-upgrades": "1.22.1",
+    "@openzeppelin/test-helpers": "0.5.16",
     "@phala/ethers": "^6.6.3",
     "@phala/fn": "^0.1.12",
     "@phala/pink-env": "^1.0.10",

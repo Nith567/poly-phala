@@ -57,7 +57,7 @@ pragma solidity ^0.8.17;
 
 // import "@openzeppelin/contracts/access/Ownable.sol";
 import "./PhatRollupAnchor.sol";
-// import "./polygonZKEVMContracts/PolygonZkEVMBridge.sol";
+import "./polygonZKEVMContracts/PolygonZkEVMBridge.sol";
 import "hardhat/console.sol";
 
 
@@ -93,7 +93,7 @@ contract TestLensApiConsumerContract is PhatRollupAnchor{
 
     uint constant TYPE_RESPONSE = 0;
     uint constant TYPE_ERROR = 2;
-    event ResponseReceived3(uint reqId,  address pair,bytes32[32] data,uint32 n,bytes32 n2,bytes32 n9,uint32 n8,address n7,uint32 n6,address n5,uint256,bytes32 n3);
+    event ResponseReceived3(uint reqId,  address pair,bytes32[32] data,uint32 n,bytes32 n2,bytes32 n9,uint32 n8,address n7,uint32 n6,address n5,uint256,bytes n3);
 //     uint32 n;
 //     uint n1;
 //     bytes32 n2;
@@ -145,9 +145,9 @@ contract TestLensApiConsumerContract is PhatRollupAnchor{
         //     action,
         //     (  uint, uint,    uint32, bytes32,  bytes32[32],   bytes,           uint256,   address,    uint32,   address,    uint32,      bytes32)
         // );
-        (uint respType, uint id,bytes32[32] memory data,uint32 n,bytes32 n2, bytes32 n9,uint32 n8,address n7,uint32 n6,address n5,uint256 n4,bytes32 n3) = abi.decode(
+        (uint respType, uint id,bytes32[32] memory data,uint32 n,bytes32 n2, bytes32 n9,uint32 n8,address n7,uint32 n6,address n5,uint256 n4,bytes memory n3) = abi.decode(
             action,
-            (  uint, uint,bytes32[32],uint32, bytes32,bytes32,uint32,address,uint32,address,uint256,bytes32)
+            (  uint, uint,bytes32[32],uint32, bytes32,bytes32,uint32,address,uint32,address,uint256,bytes)
         );
         // console.logUint(id);
 //         n=n;
@@ -161,61 +161,19 @@ contract TestLensApiConsumerContract is PhatRollupAnchor{
 //      n7=n7;
 //       n8=n8;
 //       n9=n9;
-       
+
     // event ResponseReceived3(uint reqId,  address pair,bytes32[32] data,bytes32 n2,address n7);
          emit ResponseReceived3(id, requests[id],data,n,n2,n9,n8,n7,n6,n5,n4,n3);
-            // PolygonZkEVMBridge bridgeContract = PolygonZkEVMBridge(0xF6BEEeBB578e214CA9E23B0e9683454Ff88Ed2A7);
-            // bridgeContract.claimMessage(data,n,n2,n9,n8,n7,n6,n5,n4,n3);
+            PolygonZkEVMBridge bridgeContract = PolygonZkEVMBridge(0xF6BEEeBB578e214CA9E23B0e9683454Ff88Ed2A7);
+            bridgeContract.claimMessage(data,n,n2,n9,n8,n7,n6,n5,0,n3);
             //   delete requestsByUsers[id];
             delete requests[id];
    
     }
 } 
-//  bytes32[_DEPOSIT_CONTRACT_TREE_DEPTH] calldata smtProof,
-//         uint32 index,
-//         bytes32 mainnetExitRoot,
-//         bytes32 rollupExitRoot,
-//         uint32 originNetwork,
-//         address originAddress,
-//         uint32 destinationNetwork,
-//         address destinationAddress,
-//         uint256 amount,
-//         bytes calldata metadata
-//     event ResponseReceived(
-//     uint respType,
-//     uint id,
-//     uint32 n,
-//     uint n1,
-//     bytes32 n2,
-//     bytes32[32] data,
-//     bytes n3,
-//     uint n4,
-//     address n5,
-//     uint32 n6,
-//     address n7,
-//     uint32 n8,
-//     bytes32 n9
-// );
 
 
 
 
 
 
-
-
-
-//   bytes32[32] calldata smtProof,
-//         uint32 index,
-//         bytes32 mainnetExitRoot,
-//         bytes32 rollupExitRoot,
-//         uint32 originNetwork,
-//         address originAddress,
-
-//         uint32 destinationNetwork,
-//         address destinationAddress,
-//         uint256 amount,
-//         bytes calldata metadata
-
-// 0xeac8d08a356483110ffa5e4d6f1ba43a7cbf9e9c9a01a649b647de879208b554
-// 0xe8B30c92dD92589C02009335C4c7e3756C081cBd
