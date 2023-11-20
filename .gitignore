@@ -16,5 +16,5 @@ cache
 artifacts
 
 .env
-dist
+
 polkadot-account.json
